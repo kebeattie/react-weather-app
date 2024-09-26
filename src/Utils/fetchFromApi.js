@@ -7,9 +7,27 @@ export const fetchWeatherData = async (latitude, longitude) => {
 
     try {
         const response = await axios.get(url);
-        console.log(response.data);
+        //console.log(response.data);
+        return response;
     } catch (error) {
         console.error('Error fetching the weather data:', error);
     }
 };
+
+
+
+// Function to fetch location data
+export const fetchLocationData = async (query) => {
+    const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY; // Replace with your actual API key
+    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
+
+    try {
+        const response = await axios.get(url);
+        // console.log(response.data); // Handle the response data
+        return response;
+    } catch (error) {
+        console.error('Error fetching the location data:', error);
+    }
+};
+
 

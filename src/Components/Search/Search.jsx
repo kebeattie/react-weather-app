@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Paper, IconButton, Typography } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import './Search.css';
 
 const SearchBar = () => {
     const [input, setInput] = useState('');
+    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         setInput(event.target.value);
@@ -12,8 +14,18 @@ const SearchBar = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Add your search logic here
-        console.log('Searching for:', input);
+
+        // Input validation
+        if (!input.trim()) {
+            alert('Please enter a location');
+            return;
+        }
+
+        // Navigate to the search results page
+        navigate(`/search/${input.trim()}`);
+        
+        // Clear the input field
+        setInput('');
     };
 
     return (
@@ -38,6 +50,7 @@ const SearchBar = () => {
                 placeholder='Search for a location'
                 value={input}
                 onChange={handleInputChange}
+                aria-label='Search for a location' // Accessibility improvement
             />
             <IconButton type='submit' sx={{ padding: 0, color: '#8fe0ff' }}>
                 <Search />
