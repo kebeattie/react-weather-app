@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Paper, IconButton, Typography } from '@mui/material';
+
+import { Paper, IconButton, Typography, Box } from '@mui/material';
 import { Search } from '@mui/icons-material';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+
 import './Search.css';
+import Hero from '../../assets/file.jpg';
 
 const SearchBar = () => {
     const [input, setInput] = useState('');
@@ -23,39 +28,83 @@ const SearchBar = () => {
 
         // Navigate to the search results page
         navigate(`/search/${input.trim()}`);
-        
+
         // Clear the input field
         setInput('');
     };
 
     return (
-        <Paper
-            component='form'
-            onSubmit={handleSubmit}
+        <Box
             sx={{
-                borderRadius: 0,
-                backgroundColor: '#54416d',
-                padding: 5,
-                boxShadow: 'none',
-                width: { xs: '50%', md: '60%', lg: '40%' },
-                margin: { xs: '25% auto', md: '5% auto' },
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width:{xs: '100%', md: '80%'},
+                height: '50%',
+                backgroundColor: '#000',
+                margin: {xs: '5% auto 0 auto', md: '1% auto 0 auto'},
+                backgroundImage: `url(${Hero})`,
+                borderRadius: '10px'
             }}
-        >
-            <Typography variant='h4' color='#fff'>
-                Find a forecast
-            </Typography>
 
-            <input
-                className='search-bar'
-                placeholder='Search for a location'
-                value={input}
-                onChange={handleInputChange}
-                aria-label='Search for a location' // Accessibility improvement
-            />
-            <IconButton type='submit' sx={{ padding: 0, color: '#8fe0ff' }}>
-                <Search />
-            </IconButton>
-        </Paper>
+
+        >
+
+
+
+            <br></br>
+            <Paper
+                component='form'
+                onSubmit={handleSubmit}
+                sx={{
+                    borderRadius: '5px',
+                    backgroundColor: 'rgba(29, 29, 29, 0.8)',
+                    padding: 5,
+                    boxShadow: 'none',
+                    width: { xs: '65%', small: '70%', md: '75%', lg: '40%' },
+                    margin: { xs: '25% auto', md: '5% auto' },
+
+                }}
+
+            >
+                <Typography
+                    variant='h4'
+                    color='#fff'
+                    sx={{
+                        fontSize: { xs: '1.2rem', md: '2rem' },
+                        // backgroundColor: 'rgba(142,142,142,255)'
+                    }}
+                >
+                    Find a forecast
+                </Typography>
+                <br></br>
+               
+
+                /
+                <TextField
+                    variant="outlined"
+                    placeholder='Search for a location'
+                    value={input}
+                    onChange={handleInputChange}
+                    sx={{
+                        backgroundColor:'#fff',
+                        width:{xs: '100%', md: '100%'},
+                    
+                    }}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton type='submit' sx={{ padding: 0, color: '#1d1d1d' }}>
+                                    <Search />
+                                </IconButton>
+                            </InputAdornment>
+                        ),
+                    }}
+                    fullWidth
+                />
+            </Paper>
+
+        </Box>
     );
 }
 

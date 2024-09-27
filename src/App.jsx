@@ -9,7 +9,7 @@ import ErrorBoundary from './Components/ErrorBoundary'; // Import the ErrorBound
 const App = () => {
   return (
     <BrowserRouter>
-      <Box sx={{ backgroundColor: '#8fe0ff', height: '100vh', width: '100%', p: '10px' }}>
+      <Box sx={{ backgroundColor: '#ffffff', height: '100vh', width: '95%', p: '10px', margin: '0 auto' }}>
         <Navbar />
         <ErrorBoundary>
           <Routes>
