@@ -39,10 +39,10 @@ const SearchBar = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                width:{xs: '100%', md: '80%'},
+                width: { xs: '100%', md: '80%' },
                 height: '50%',
                 backgroundColor: '#000',
-                margin: {xs: '5% auto 0 auto', md: '1% auto 0 auto'},
+                margin: { xs: '5% auto 0 auto', md: '1% auto 0 auto' },
                 backgroundImage: `url(${Hero})`,
                 borderRadius: '10px'
             }}
@@ -78,18 +78,18 @@ const SearchBar = () => {
                     Find a forecast
                 </Typography>
                 <br></br>
-               
 
-                /
+
+
                 <TextField
                     variant="outlined"
                     placeholder='Search for a location'
                     value={input}
                     onChange={handleInputChange}
                     sx={{
-                        backgroundColor:'#fff',
-                        width:{xs: '100%', md: '100%'},
-                    
+                        backgroundColor: '#fff',
+                        width: { xs: '100%', md: '100%' },
+
                     }}
                     InputProps={{
                         endAdornment: (
