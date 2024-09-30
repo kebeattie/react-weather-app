@@ -19,7 +19,7 @@ export const fetchWeatherData = async (latitude, longitude) => {
 // Function to fetch location data
 export const fetchLocationData = async (query) => {
     const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY; // Replace with your actual API key
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${apiKey}`;
 
     try {
         const response = await axios.get(url);

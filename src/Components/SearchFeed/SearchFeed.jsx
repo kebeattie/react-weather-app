@@ -62,7 +62,7 @@ const SearchFeed = () => {
                 width: { xs: '100%', md: '80%' },
             }}
         >
-            <Typography variant='h3' color='white' sx={{ position: { xs: 'fixed', md: 'relative' }, top: { xs: '150px', md: '0' } }}>
+            <Typography variant='h3' color='white' sx={{ position: 'relative'}}>
                 {searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1)}
             </Typography>
 
